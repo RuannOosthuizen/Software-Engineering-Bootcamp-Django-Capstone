@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forms</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'details_style.css' %}">
+</head>
+<body>
+    <h1>{{question.question_text}}</h1>
+
+    <form action="{% url 'polls:vote' question.id %}" method="post">
+        {% csrf_token %}
+
+        {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice {{ forloop.counter }}" value="{{ choice.id }}"/>
+        <label for="choice {{ forloop.counter }}">
+            {{choice.choice_text}}
+        </label>
+        <br/>
+        {% endfor %}
+
+        <button type="sumbit" value="Vote">Sumbit</button>
+
+        {% if error_message %}
+        <p><strong>{{error_message}}</strong></p>
+        {% endif %}
+    </form>
+</body>
+</html>

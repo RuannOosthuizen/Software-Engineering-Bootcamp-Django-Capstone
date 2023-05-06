@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'homepage_style.css' %}">
+  </head>
+  <body>
+    <nav>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'polls:index' %}">Vote Here</a></li>
+          <li><a href="{% url 'user_auth:login' %}">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+      <h2>The Futur of</h2>
+      <h1>Transportation</h1>
+      <p>"Welcome to our survey on now and future transportation options for urban commuting!<br>
+        We're excited to hear your opinions on the different layers that make up sustainable transportation options.<br>
+        We know that transportation is a crucial part of our daily lives, but it can also have a significant impact on the environment and our wallets.<br>
+        By participating in our survey and voting on factors such as environmental impact, affordability, convenience, and safety, you can help<br>
+        us identify the most sustainable transportation option for your daily commute.<br>
+        Your input will help us create a comprehensive evaluation of the best sustainable transportation option for urban commuting,<br>
+        taking into account different aspects and perspectives. Join us in making our cities greener, cleaner, and more affordable by sharing your opinions in our survey!"</p>
+    </div>
+  </body>
+</html>
